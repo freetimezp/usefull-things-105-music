@@ -58,7 +58,7 @@ body {
 .avatar {
     position: absolute;
     top: -80px;
-    width: 150px;
+    width: 120px;
     height: 150px;
     z-index: 2;
 }
