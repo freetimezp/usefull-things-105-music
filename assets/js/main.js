@@ -15,7 +15,7 @@ let isPlaying = false;
 let isHidden = true;
 
 let currentTrack = document.createElement("audio");
-document.body.appendChild(currentTrack); // Attach audio element to the document
+document.body.appendChild(currentTrack);
 
 let soundBars = document.querySelector(".sound-bars");
 
@@ -37,33 +37,33 @@ togglePlayer.addEventListener("click", function () {
 
 let soundBarsLottie = bodymovin.loadAnimation({
     container: soundBars,
-    renderer: 'svg',
+    renderer: "svg",
     loop: true,
     autoplay: false,
-    path: 'https://lottie.host/6af96953-c497-4513-9128-210fc6bab62c/mgF9l9sS8S.json',
+    path: "https://lottie.host/6af96953-c497-4513-9128-210fc6bab62c/mgF9l9sS8S.json",
 });
 
 let trackList = [
     {
         name: "Play it",
         artist: "Коля Кузьмак",
-        path: "./assets/musics/1.mp3"
+        path: "./assets/musics/1.mp3",
     },
     {
         name: "Real time",
         artist: "Остра Тирнина",
-        path: "./assets/musics/2.mp3"
+        path: "./assets/musics/2.mp3",
     },
     {
         name: "Best music",
         artist: "Настя Балог",
-        path: "./assets/musics/3.mp3"
+        path: "./assets/musics/3.mp3",
     },
     {
         name: "Want more",
         artist: "LeriOne",
-        path: "./assets/musics/4.mp3"
-    }
+        path: "./assets/musics/4.mp3",
+    },
 ];
 
 function loadTrack(trackIndex) {
@@ -86,13 +86,14 @@ function playPauseTrack() {
 }
 
 function playTrack() {
-    currentTrack.play()
+    currentTrack
+        .play()
         .then(() => {
             isPlaying = true;
             playPauseBtn.innerHTML = '<ion-icon name="pause-sharp"></ion-icon>';
             soundBarsLottie.playSegments([3, 36], true);
         })
-        .catch(error => console.error("Playback failed:", error));
+        .catch((error) => console.error("Playback failed:", error));
 }
 
 function pauseTrack() {
@@ -118,4 +119,3 @@ function prevTrack() {
 playPauseBtn.addEventListener("click", playPauseTrack);
 nextBtn.addEventListener("click", nextTrack);
 prevBtn.addEventListener("click", prevTrack);
-
